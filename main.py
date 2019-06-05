@@ -21,6 +21,7 @@ class Game:
 	def load_data(self):
 		self.slash_img = pygame.image.load("slash.png")
 		self.slash_img = pygame.transform.scale(self.slash_img, (250, 63))
+		self.sword_swing_sound = pygame.mixer.Sound("sword_swing.wav")
 
 	def new(self):
 		self.all_sprites = pygame.sprite.Group()
@@ -194,6 +195,7 @@ class Game:
 					angle = math.atan2(self.pts_blue[0][1] - self.pts_blue[i][1], self.pts_blue[0][0] - self.pts_blue[i][0]) / math.pi * 180 * -1
 					point = (self.pts_blue[0][0] + (self.pts_blue[i][0] - self.pts_blue[0][0]) // 2, self.pts_blue[0][1] + (self.pts_blue[i][1] - self.pts_blue[0][1]) // 2) 
 					self.slashes_blue.append( [point, angle, 0, True] )
+					self.sword_swing_sound.play()
 					for j in range(len(self.pts_blue)):
 						self.pts_blue.pop()
 					break
@@ -206,6 +208,7 @@ class Game:
 					angle = math.atan2(self.pts_green[0][1] - self.pts_green[i][1], self.pts_green[0][0] - self.pts_green[i][0]) / math.pi * 180 * -1
 					point = (self.pts_green[0][0] + (self.pts_green[i][0] - self.pts_green[0][0]) // 2, self.pts_green[0][1] + (self.pts_green[i][1] - self.pts_green[0][1]) // 2) 
 					self.slashes_green.append( [point, angle, 0, True] )
+					self.sword_swing_sound.play()
 					for j in range(len(self.pts_green)):
 						self.pts_green.pop()
 					break

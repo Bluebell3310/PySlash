@@ -157,6 +157,7 @@ class Player(pygame.sprite.Sprite):
             
             now = pygame.time.get_ticks()
             if now - self.dead_last_update > 140:
+                self.game.sword_swing_sound.play()
                 self.dead_last_update = now
                 self.slash_count += 1
                 if self.slash_count >= len(slashes):

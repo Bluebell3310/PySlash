@@ -3,8 +3,8 @@ import numpy as np
 from collections import deque
 import math
 
-BLUE_LOWER = 105
-BLUE_UPPER = 120
+BLUE_LOWER = 108
+BLUE_UPPER = 115
 GREEN_LOWER = 80
 GREEN_UPPER = 100
 
